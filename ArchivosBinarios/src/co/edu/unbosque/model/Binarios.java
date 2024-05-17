@@ -1,17 +1,20 @@
 package co.edu.unbosque.model;
 
 import co.edu.unbosque.model.persistence.BinariosFile;
+import co.edu.unbosque.model.persistence.EmpleadoDAO;
 
-// En este método se implementarían las transacciones que se requieran con los 
-// métodos básicos de lectura y escritura de archivos binarios. 
+// En este mï¿½todo se implementarï¿½an las transacciones que se requieran con los 
+// mï¿½todos bï¿½sicos de lectura y escritura de archivos binarios. 
 
 public class Binarios {
 
 	private BinariosFile bf;
+	private EmpleadoDAO empleadoDAO;
 	
 	public Binarios() {
 		// TODO Auto-generated constructor stub
 		bf = new BinariosFile();
+		empleadoDAO = new EmpleadoDAO();
 	}
 
 
@@ -25,12 +28,22 @@ public class Binarios {
 	}
 
 
-	/* metodo que realiza un proceso basado en un parámetro "dato" 
+	/* metodo que realiza un proceso basado en un parï¿½metro "dato" 
 	 * y retorne el dato procesado. Reemplazar por lo que se necesiten
 	 */
 	public String procesarDato(String dato) {
 		dato = dato + " procesado";
 		return dato;
+	}
+
+
+	public EmpleadoDAO getEmpleadoDAO() {
+		return empleadoDAO;
+	}
+
+
+	public void setEmpleadoDAO(EmpleadoDAO empleadoDAO) {
+		this.empleadoDAO = empleadoDAO;
 	}
 	
 	
