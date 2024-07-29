@@ -12,14 +12,15 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
-// En esta clase se implementan los métodos básicos de lectura y escritura
-// de los dos ejemplos de clase, por esta razón, van aquí.
+// En esta clase se implementan los mï¿½todos bï¿½sicos de lectura y escritura
+// de los dos ejemplos de clase, por esta razï¿½n, van aquï¿½.
 
 public class BinariosFile {
 
 	
 	private String ruta = "./data/prueba.out";
 	private String rutaReg = "./data/registro.out";
+	private String rutaEmp = "./data/empleados.out";
 
 	private int REGISTROS = 10;
 	private File f; 
@@ -32,6 +33,7 @@ public class BinariosFile {
 	private double valores[];
 	private Registro reg;
 	private Registro[] datos;
+	private ArrayList<EmpleadoDTO> lista;
 	
 	//private ArrayList<Registro> empleados;
 	
@@ -70,7 +72,7 @@ public class BinariosFile {
 			dos=new DataOutputStream(fos);     
 			for (int i=0;i<REGISTROS;i++){ 
 				dos.writeInt(i);
-				dos.writeDouble(r.nextDouble());//Nº aleatorio     
+				dos.writeDouble(r.nextDouble());//Nï¿½ aleatorio     
 			}     
 			dos.close();
 		} 
@@ -143,6 +145,38 @@ public class BinariosFile {
 			e.printStackTrace();
 		}
 	}
+	
+	public String escribirEmpleados(ArrayList<EmpleadoDTO> lista) {
+		String mensaje = "Lista de Empleados Registrada!";
+		try {
+			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(rutaEmp));
+			out.writeObject(lista);
+			out.close();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+			mensaje = "Error de IO";
+		}
+		return mensaje;
+	}
+	
+	public ArrayList<EmpleadoDTO> leerEmpleados() {
+		lista = null;
+        ObjectInputStream in;
+		try {
+			in = new ObjectInputStream(new FileInputStream(rutaEmp));
+	        lista = (ArrayList<EmpleadoDTO>)in.readObject();
+	        in.close();
+	        for (int i = 0; i < lista.size(); i++) {
+	        		System.out.println(lista.get(i).getCodigo());
+	        }
+
+		} catch (IOException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lista;
+	}
 
 	public Registro[] getDatos() {
 		return datos;
@@ -160,4 +194,14 @@ public class BinariosFile {
 		this.numeros = numeros;
 	}
 
+	public ArrayList<EmpleadoDTO> getLista() {
+		return lista;
+	}
+
+	public void setLista(ArrayList<EmpleadoDTO> lista) {
+		this.lista = lista;
+	}
+
+	
+	
 }

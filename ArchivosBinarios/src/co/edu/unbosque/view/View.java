@@ -1,9 +1,13 @@
 package co.edu.unbosque.view;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 import co.edu.unbosque.controller.Controller;
+import co.edu.unbosque.model.persistence.EmpleadoDTO;
 import co.edu.unbosque.model.persistence.Registro;
 
 public class View extends JFrame{
@@ -16,12 +20,12 @@ public class View extends JFrame{
 	
 	public View(Controller control) 
 	{
-		// Definición de los parámetros básicos de la ventana principal
+		// Definiciï¿½n de los parï¿½metros bï¿½sicos de la ventana principal
 		
-		setSize(500,400); //tamaño en ancho y alto en pixeles
-		setResizable(false); //Se puede cambiar el tamaño de la ventana?
-		setTitle("Título de la Ventana Principal"); //tìtulo de la ventana
-		setDefaultCloseOperation(EXIT_ON_CLOSE);//qué debe hacer si cierra la ventana
+		setSize(500,400); //tamaï¿½o en ancho y alto en pixeles
+		setResizable(false); //Se puede cambiar el tamaï¿½o de la ventana?
+		setTitle("Tï¿½tulo de la Ventana Principal"); //tï¿½tulo de la ventana
+		setDefaultCloseOperation(EXIT_ON_CLOSE);//quï¿½ debe hacer si cierra la ventana
 		setLocationRelativeTo(null); //coloca la ventana al centro de la pantalla
 		//Establece el layout (lienzo) que vamos a utilizar dentro de la ventana principal.
 		setLayout( new BorderLayout() );
@@ -81,6 +85,14 @@ public class View extends JFrame{
 			getPanelRegistro().getTxtEdad().append(String.valueOf(datos[i].getEdad())+"\n");
 			getPanelRegistro().getTxtNombre().append(String.valueOf(datos[i].getNombre())+"\n");
 			getPanelRegistro().getTxtSalario().append(String.valueOf(datos[i].getSalario())+"\n");
+		}	
+	}
+	
+	public void mostrarEmpleados(ArrayList<EmpleadoDTO> lista) {
+		for (int i= 0 ; i<lista.size() ; i++) {
+			getPanelRegistro().getTxtEdad().append(String.valueOf(lista.get(i).getNombre())+"\n");
+			getPanelRegistro().getTxtNombre().append(String.valueOf(lista.get(i).getCodigo())+"\n");
+			getPanelRegistro().getTxtSalario().append(String.valueOf(lista.get(i).getSalario())+"\n");
 		}	
 	}
 	
