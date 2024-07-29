@@ -29,6 +29,8 @@ public class ClaseX {
 		if(i > 20) {
 			throw new NumerChimboException("SU numero es rechimbo!");
 		}
+		
+		
 
 		return "Ok!";
 	}
@@ -71,6 +73,32 @@ public class ClaseX {
 			}
 		}
 		return s;
+	}
+	
+	public void hacerExcepciones() {
+		int i=0;
+		try {
+			//instrucciones que lanzan excepciones
+			if(i < 10) {
+				throw new NoMeGustaElNumeroException();
+			}
+			if(i < 10) {
+				throw new NoSeaGuacheException();
+			}
+			if(i < 10) {
+				throw new NumerChimboException(null);
+			}
+		}
+		catch(NoMeGustaElNumeroException e) {
+			// instrucción A
+		}
+		catch(NoSeaGuacheException e) {
+			// instrucción B
+		}
+		catch(NumerChimboException e) {
+			// instrucción C
+		}
+
 	}
 	
 }
