@@ -18,7 +18,7 @@ public class CalculadoraTest extends TestCase {
 	public void testSuma() {
 		j++;
 		System.out.println("test suma "+j);
-		assertEquals("Las sumas NO coinciden",calc.suma(4, 5),9);
+		assertEquals("Las sumas NO coinciden",9, calc.suma(4, 5));
 	}
 	
 
@@ -30,7 +30,7 @@ public class CalculadoraTest extends TestCase {
 	public void testResta() {
 		j++;
 		System.out.println("test resta "+j);
-		assertEquals("La resta no es correcta",calc.resta(12, 10),-2);
+		assertEquals("La resta no es correcta",-2,calc.resta(12, 10));
 	}
 	
 	public void tearDown() throws Exception{

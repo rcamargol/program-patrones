@@ -3,7 +3,7 @@ package co.edu.unbosque.model;
 public class ClaseY {
 
 	protected String haceAlgo() {
-		return "no hago nada, y qué!!";
+		return "no hago nada, y quï¿½!!";
 	}
 
 	protected String hacerNada() {
@@ -29,15 +29,10 @@ public class ClaseY {
 	public String hacerPolimorfismo() {
 
 		Persona personas[];
-
 		personas = new Persona[3];
-		
 		Persona p = new Persona();
 		Alumno a = new Alumno();
 		Profesor pr = new Profesor();
-		
-		p = a;
-		p = pr;
 		
 		String linea = "";
 
@@ -47,7 +42,7 @@ public class ClaseY {
 		for (int i = 0; i < 3; i++)
 			linea += personas[i] + " \n";
 
-		linea += new Persona();
+		//linea += new Persona();
 
 		return linea;
 	}
