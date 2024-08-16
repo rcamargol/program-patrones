@@ -1,8 +1,10 @@
+package co.edu.unbosque.model;
 public class Repaso {
 
+	static int numeros[] = {1,2,3,4,5,6,7,8,9,10};
 
+	
 	public static void main(String[] args) {
-		int numeros[] = {1,2,3,4,5,6,7,8,9,10};
 		System.out.println("Original");
 		for (int i=0 ; i<10 ; i++) {
 			System.out.print(numeros[i]+" ");
@@ -16,16 +18,17 @@ public class Repaso {
 		
 		for (int i=0 ; i<10 ; i++) {
 			System.out.print(numeros[i]+" ");
-		}
+		}		
 		
 	}
 
 	public static int[] invertirArreglo(int[] a) {
 		int aux;
-		int i;
+		int i, x;
 		for (i = 0 ; i<a.length/2 ; i++) {
-			aux = a[a.length-i-1];
-			a[a.length-i-1] = a[i];
+			x = a.length-i-1;
+			aux = a[x];
+			a[x] = a[i];
 			a[i] = aux;
 			imprimirPruebaEsc(a,aux,i);
 		}
