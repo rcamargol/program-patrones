@@ -19,6 +19,12 @@ public class Felino extends Mamifero{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public String respirar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }
